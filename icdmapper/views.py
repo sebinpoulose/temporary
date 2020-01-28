@@ -1,18 +1,14 @@
 import os
-
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.http import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.template import RequestContext
-
 from MainProject import settings
 from .forms import CutpasteForm
 
 
 # Create your views here.
-
 
 def icdmapper_login(request):
     return render(request, "icdmapperlogin.html", {})
@@ -44,7 +40,7 @@ def homepage(request):
         if form.is_valid():
             data = form.cleaned_data
             field = data['diagnosis']
-            answer = field
+            answer = [('heart attack', 'I214')]
             # print(field)
             return render(request, 'icdhome.html', {'form': form, 'answer': answer})
         else:
@@ -61,13 +57,17 @@ def upload_file(request):
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
         url = '/icdmapper'
-        url = fs.url(name)  # url to the file
+        url = "."+fs.url(name)  # url to the file
         print(url)
         form = CutpasteForm()
+        result = {'./media/37543_IurR00j.txt': [('lower respiratory tract infection', 'J22'),
+                                                ('acute bronchitis', 'J209'),
+                                                ('ostium secundum atrial septal defect with left to right shunt',
+                                                 'Ambiguous')]}
         context = {
             'form': form,
             'url': uploaded_file.name,
-            'result': "mapped value"
+            'result': result
         }
         return render(request, 'icdhome.html', context)
     form = CutpasteForm()
@@ -78,7 +78,9 @@ def loadstorage(request):
     if request.method == 'POST':
         filenames = request.POST.getlist('userselect')
         print(filenames)
-        result = str(filenames)
+        result = {'./media/101284.txt': [('right vocal cord polyp', 'J381')],
+                  './media/109758.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')],
+                  './media/109758_rJDNRcm.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')]}
         return render(request, 'loadstore.html',
                       {'total_files': os.listdir(settings.MEDIA_ROOT), 'path': settings.MEDIA_ROOT,
                        'result': result})

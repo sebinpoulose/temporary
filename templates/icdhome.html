@@ -56,7 +56,10 @@
     </form>
     <center>
     {% if answer %}
-        <p>{{ answer }}</p>
+        {% for val in answer %}
+            Diagnosis   : <b>{{ val.0 }}</b>  &nbsp;&nbsp;  ICD 10 Code : <b>{{ val.1 }}</b>
+            <br>
+        {% endfor %}
     {% endif %}
     <hr>
     <br>
@@ -72,7 +75,13 @@
         <p>File uploaded : {{ url }}</p>
     {% endif %}
     {% if result %}
-        <p>{{ result }}</p>
+        {% for key, value in result.items %}
+            <h4>RESULTS</h4>
+            {% for elem in value %}
+                <b>{{ elem.0 }}</b> - <b>{{ elem.1 }}</b>
+                <br>
+            {% endfor %}
+        {% endfor %}
     {% endif %}
     <hr>
     <br>

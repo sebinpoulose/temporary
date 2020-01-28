@@ -14,8 +14,6 @@
 <h2>File List</h2>
 <div style="text-align: center;">
     <div style="display: inline-block; text-align: left;">
-
-
     <form method="post" action="{% url 'loadstorage' %}">
      {% csrf_token %}
 <table border="1" colspan="1" width="100%">
@@ -32,9 +30,16 @@
 </form>
 
 {% if result %}
-    <p>{{ result }}</p>
+    <h4>RESULTS</h4>
+    {% for key, value in result.items %}
+            <b>File name : {{ key }}</b>
+        <br>
+            {% for elem in value %}
+                <b>{{ elem.0 }}</b> - <b>{{ elem.1 }}</b>
+                <br>
+            {% endfor %}
+        <br>
+        {% endfor %}
 {% endif %}
-
-
     </center>
 {% endblock bodypart %}
