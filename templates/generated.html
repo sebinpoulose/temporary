@@ -1,0 +1,155 @@
+{% extends 'basehome.html' %}
+{% block title %}
+    Graphical Reports home page
+{% endblock title %}
+
+{% block greporthomeblock %}
+   <li><a href="{% url 'greporthomepage' %}">Home</a></li>
+   {% endblock greporthomeblock %}
+{% block testsetblock %}
+   <li><a href="{% url 'testset' %}">Available Tests</a></li>
+   {% endblock testsetblock %}
+{% block bodypart %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    Current User : {{ user.username }}
+<br><br>
+    <h2 style="text-align: center">Graphical Report</h2>
+    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <h3 class=" text-black" style="alignment: center">Patient ID : </h3>
+            <span class="loader pull-right"><span class="loader-inner"></span></span>
+            <hr></br>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a class="first" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is Lorem Ipsum?
+                                <span> </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                 when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                  It has survived not only five centuries, but also the leap into electronic typesetting, 
+                                  remaining essentially unchanged. It was popularised in the 1960s with the release of 
+                                  Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+                                  software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Why do we use it?
+                                <span> </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <p>It is a long established fact that a reader will be distracted by the readable content
+                                 of a page when looking at its layout. The point of using Lorem
+                                  Ipsum is that it has a more-or-less normal distribution of letters,
+                                   as opposed to using 'Content here, content here', making it look like readable English.
+                            </p>
+                            <img src="/static/images/img-01.png" width="300">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed last" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Where does it come from?
+                                <span> </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text.
+                                 It has roots in a piece of classical Latin literature from 45 BC, 
+                                 making it over 2000 years old. Richard McClintock, a Latin professor 
+                                 at Hampden-Sydney College in Virginia, looked up one of the more obscure 
+                                 Latin words, consectetur, from a Lorem Ipsum passage.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed last" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                Where can I get some?
+                                <span> </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="panel-body">
+                            <p>There are many variations of passages of Lorem Ipsum available, 
+                                but the majority have suffered alteration in some form, by injected humour, 
+                                or randomised words which don't look even slightly believable. 
+                                If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't 
+                                anything embarrassing hidden in the middle of text.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed last" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                Where can I get some?
+                                <span> </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body">
+                            <p>There are many variations of passages of Lorem Ipsum available,
+                                but the majority have suffered alteration in some form, by injected humour,
+                                or randomised words which don't look even slightly believable.
+                                If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                                anything embarrassing hidden in the middle of text.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+ <!--footer-->
+ <div class="footer text-center">
+
+</div>
+    <!--//footer-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% endblock bodypart %}

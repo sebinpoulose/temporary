@@ -11,4 +11,30 @@
 {% block bodypart %}
     Current User : {{ user.username }}
     {{ loaded_data | safe }}
+
+
+<div class="container">
+  <h2>Graphical Report Generator</h2>
+  <p>Type or select a patient ID to generate report :</p>
+  <input class="form-control" id="myInput" type="text" placeholder="Search Patient ID..">
+  <br>
+  <ul class="list-group" id="myList">
+  <li class="list-group-item"><a href="{% url 'generate' %}">First item</a></li>
+    {% for elem in pids %}
+        <li class="list-group-item"><a href="{% url 'generate' %}">{{ elem }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 {% endblock bodypart %}

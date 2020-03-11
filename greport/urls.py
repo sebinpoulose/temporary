@@ -1,3 +1,4 @@
+from django.conf.urls import url
 from django.urls import path
 from . import views
 
@@ -7,4 +8,5 @@ urlpatterns = [
     path('home/', views.homepage, name='greporthomepage'),
     path("logout/", views.logout_request, name="logout"),
     path("testset/", views.testset, name="testset"),
+    path("generate/", views.gen_report, name="generate"),
 ]
