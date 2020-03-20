@@ -1,0 +1,31 @@
+PatientID,TestName,ParameterName,Result,ResultDatetime,Normal,ReferenceRange
+64842246,Alkaline Phosphatase,Alkaline Phosphatase,128,10-23-19 17:46,N,50.0 - 136.0
+64842246,Blood Sugar RBS,RBS,189,10-23-19 17:46,H,70.0 - 160.0
+64842246,Complete Haemogram,Basophils,1,10-23-19 16:51,N,0.0 - 2.0
+64842246,Complete Haemogram,Basophils Count,0,10-23-19 16:51,L,0.02 - 0.1
+64842246,Complete Haemogram,Eosinophils,7,10-23-19 16:51,H,1.0 - 6.0
+64842246,Complete Haemogram,Eosinophils Count,0.5,10-23-19 16:51,H,0.02 - 0.44
+64842246,Complete Haemogram,Haemoglobin,11,10-23-19 16:51,L,12.0 - 15.0
+64842246,Complete Haemogram,Hct,32,10-23-19 16:51,L,40.0 - 54.0
+64842246,Complete Haemogram,Lymphocytes,21,10-23-19 16:51,N,20.0 - 40.0
+64842246,Complete Haemogram,Lymphocytes Count,1.4,10-23-19 16:51,N,1.0 - 3.0
+64842246,Complete Haemogram,MCH,31,10-23-19 16:51,N,27.0 - 32.0
+64842246,Complete Haemogram,MCHC,34,10-23-19 16:51,N,32.0 - 36.0
+64842246,Complete Haemogram,MCV,89,10-23-19 16:51,N,80.0 - 100.0
+64842246,Complete Haemogram,Monocytes,5,10-23-19 16:51,N,2.0 - 10.0
+64842246,Complete Haemogram,Monocytes Count,0.3,10-23-19 16:51,N,0.2 - 1.0
+64842246,Complete Haemogram,MPV,6.7,10-23-19 16:51,L,7.5 - 11.5
+64842246,Complete Haemogram,Neutrophils,66,10-23-19 16:51,N,40.0 - 80.0
+64842246,Complete Haemogram,Neutrophils Count,4.8,10-23-19 16:51,N,2.0 - 7.0
+64842246,Complete Haemogram,Platelet,380,10-23-19 16:51,N,150.0 - 450.0
+64842246,Complete Haemogram,RBC Count,3.6,10-23-19 16:51,L,3.8 - 5.3
+64842246,Complete Haemogram,RDW,15.5,10-23-19 16:51,N,10.0 - 16.5
+64842246,Complete Haemogram,TC,7,10-23-19 16:51,N,4.0 - 11.0
+64842246,Lipid Profile,HDL Cholesterol,50,10-24-19 6:11,N,40.0 - 60.0
+64842246,Lipid Profile,LDL Cholesterol,160,10-24-19 6:11,N,Optimal < 100 | Borderline 130 - 159 | High>160
+64842246,Lipid Profile,Total Cholesterol,247,10-24-19 6:11,N,Desirable < 200 | Borderline 200-239 | High>=240
+64842246,Lipid Profile,Triglycerides,190,10-24-19 6:11,N,Desirable < 150 | Borderline 150-200 | High>=200
+64842246,Lipid Profile,VLDL Cholesterol,38,10-24-19 6:11,H,0.0 - 30.0
+64842246,RFT,Creatinine,0.89,10-23-19 17:46,N,0.6 - 1.4
+64842246,RFT,Urea,30.8,10-23-19 17:46,N,15.0 - 45.0
+64842246,SGPT/ ALT,SGPT,47,10-23-19 17:46,N,30.0 - 65.0

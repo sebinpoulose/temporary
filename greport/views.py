@@ -3,7 +3,7 @@ from django.http import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import pandas as pd
-
+from .loader import get_data_object
 # Create your views here.
 
 
@@ -47,5 +47,6 @@ def testset(request):
 
 @login_required(login_url='/greports/login/')
 def gen_report(request):
-    context = {}
+    data = get_data_object(int(request.GET['pid']))
+    context = {'pid': request.GET['pid'], 'data': data}
     return render(request, "generated.html", context)
