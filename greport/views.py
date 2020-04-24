@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import pandas as pd
 from .loader import get_data_object
+from .graph_maker import make_graph
+from .trend_maker import make_trend
 # Create your views here.
 
 
@@ -50,3 +52,16 @@ def gen_report(request):
     data = get_data_object(int(request.GET['pid']))
     context = {'pid': request.GET['pid'], 'data': data}
     return render(request, "generated.html", context)
+
+
+def gen_graph(request):
+    make_graph(int(request.GET['pid']))
+    context = {}
+    return render(request, "report.html", context)
+
+
+def one_graph(request):
+    pid = request.GET['pid']
+    testname = request.GET['testname']
+    make_trend(pid, testname)
+    return render(request, "report.html", {})

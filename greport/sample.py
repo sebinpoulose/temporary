@@ -1,3 +1,4 @@
+import plotly
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
@@ -56,4 +57,4 @@ fig.update_layout(
     title_text="Graphical Report for patient : 64842246",
     )
 
-fig.show()
+plotly.offline.plot(fig, filename='../templates/report.html', auto_open=False)

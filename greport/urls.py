@@ -9,4 +9,6 @@ urlpatterns = [
     path("logout/", views.logout_request, name="logout"),
     path("testset/", views.testset, name="testset"),
     path("generate/", views.gen_report, name="generate"),
+    path("generate/graph/", views.gen_graph, name="gengraph"),
+    path("generate/onegraph/", views.one_graph, name="onegraph"),
 ]
