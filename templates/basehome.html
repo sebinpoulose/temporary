@@ -17,30 +17,21 @@
        base home
    {% endblock title %}
    </title>
+
+<style type="text/css">
+    body {
+    padding-bottom: 100px;
+}
+</style>
+
 </head>
 <body>
-
 <div id='cssmenu'>
 <ul>
 {% block greporthomeblock %}
    <li><a href="{% url 'greporthomepage' %}">Home</a></li>
    {% endblock greporthomeblock %}
-    <li class='active'><a href='#'>Products</a>
-      <ul>
-         <li><a href='#'>Product 1</a>
-            <ul>
-               <li><a href='#'>Sub Product</a></li>
-               <li><a href='#'>Sub Product</a></li>
-            </ul>
-         </li>
-         <li><a href='#'>Product 2</a>
-            <ul>
-               <li><a href='#'>Sub Product</a></li>
-               <li><a href='#'>Sub Product</a></li>
-            </ul>
-         </li>
-      </ul>
-   </li>
+
     {% block testsetblock %}
    <li><a href="{% url 'testset' %}">Available Tests</a></li>
    {% endblock testsetblock %}

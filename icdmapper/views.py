@@ -8,8 +8,6 @@ from MainProject import settings
 from .forms import CutpasteForm
 
 
-# Create your views here.
-
 def icdmapper_login(request):
     return render(request, "icdmapperlogin.html", {})
 
@@ -29,7 +27,6 @@ def login_user(request):
 
 def logout_request(request):
     logout(request)
-    # return render(request, "Home_page.html", {})
     return redirect("home")
 
 
@@ -41,7 +38,6 @@ def homepage(request):
             data = form.cleaned_data
             field = data['diagnosis']
             answer = [('heart attack', 'I214')]
-            # print(field)
             return render(request, 'icdhome.html', {'form': form, 'answer': answer})
         else:
             print('error')
@@ -50,10 +46,10 @@ def homepage(request):
     return render(request, 'icdhome.html', {'form': form})
 
 
+@login_required(login_url='/icdmapper/login/')
 def upload_file(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
-        # print(uploaded_file.name)
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
         url = '/icdmapper'
@@ -77,7 +73,6 @@ def upload_file(request):
 def loadstorage(request):
     if request.method == 'POST':
         filenames = request.POST.getlist('userselect')
-        print(filenames)
         result = {'./media/101284.txt': [('right vocal cord polyp', 'J381')],
                   './media/109758.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')],
                   './media/109758_rJDNRcm.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')]}

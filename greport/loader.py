@@ -26,7 +26,9 @@ def mod_time_and_sort(dat):
 
 
 def get_data_object(pid):
-    df = pd.read_csv("./media/Lab-Results-07112019.csv")
+    df = pd.read_csv("./media/Lab-Results-07112019.csv", header=0,
+                     names=['PatientID', 'TestName', 'ParameterName', 'Result',
+                            'ResultDatetime', 'Normal', 'ReferenceRange'])
     df = df.loc[df['PatientID'] == pid]
     df = df[df['ParameterName'] != 'Comment']
     df = df[df['Result'] != 'Subhead']
@@ -55,11 +57,3 @@ def get_data_object(pid):
         result.append(testlist)
     result = mod_time_and_sort(result)
     return result
-
-
-if __name__ == "__main__":
-    patient_id = 64842246
-    data = get_data_object(patient_id)
-    print(data)
-    for elem in data:
-        print("Test date:", elem[0])

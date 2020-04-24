@@ -6,7 +6,9 @@ import pandas as pd
 def make_trend(pid, testname):
     global title
     title = ""
-    df = pd.read_csv("./media/Lab-Results-07112019.csv")
+    df = pd.read_csv("./media/Lab-Results-07112019.csv", header=0,
+                     names=['PatientID', 'TestName', 'ParameterName', 'Result',
+                            'ResultDatetime', 'Normal', 'ReferenceRange'])
     df = df.loc[df['PatientID'] == int(pid)]
     df = df.loc[df['TestName'] == testname]
     df = df[df['ParameterName'] != 'Comment']
