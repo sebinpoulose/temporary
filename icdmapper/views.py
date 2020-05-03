@@ -8,6 +8,10 @@ from MainProject import settings
 from .forms import CutpasteForm
 
 
+def about(request):
+    return render(request, "about.html")
+
+
 def icdmapper_login(request):
     return render(request, "icdmapperlogin.html", {})
 
@@ -50,11 +54,10 @@ def homepage(request):
 def upload_file(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
+        fs = FileSystemStorage(location="./media/icdmapper_files")
         name = fs.save(uploaded_file.name, uploaded_file)
         url = '/icdmapper'
         url = "."+fs.url(name)  # url to the file
-        print(url)
         form = CutpasteForm()
         result = {'./media/37543_IurR00j.txt': [('lower respiratory tract infection', 'J22'),
                                                 ('acute bronchitis', 'J209'),
@@ -73,11 +76,11 @@ def upload_file(request):
 def loadstorage(request):
     if request.method == 'POST':
         filenames = request.POST.getlist('userselect')
-        result = {'./media/101284.txt': [('right vocal cord polyp', 'J381')],
-                  './media/109758.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')],
-                  './media/109758_rJDNRcm.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status', 'C61')]}
+        result = {'101284.txt': [('right vocal cord polyp', 'J381')],
+                  '109758.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status','C61')],
+                  '109759.txt': [('metastatic adenocarcinoma prostate - post laparoscopic radical prostatectomy status','C61')]}
         return render(request, 'loadstore.html',
-                      {'total_files': os.listdir(settings.MEDIA_ROOT), 'path': settings.MEDIA_ROOT,
+                      {'total_files': os.listdir(settings.MEDIA_ROOT+"\\icdmapper_files\\"), 'path': settings.MEDIA_ROOT,
                        'result': result})
     return render(request, 'loadstore.html',
-                  {'total_files': os.listdir(settings.MEDIA_ROOT), 'path': settings.MEDIA_ROOT})
+                  {'total_files': os.listdir(settings.MEDIA_ROOT+"\\icdmapper_files\\"), 'path': settings.MEDIA_ROOT})

@@ -18,7 +18,6 @@ from django.urls import path, include
 from .views import home_page as homepage, test_500
 from django.conf.urls import handler400, handler403, handler404, handler500
 
-
 urlpatterns = [
     path('', homepage, name='home'),
     path('greports/', include('greport.urls')),
